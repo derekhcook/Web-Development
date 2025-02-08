@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Derek Cook</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="ribbon"></div> <!-- Ribbon Background -->
+                <div class="left-side">
+                    <div class="links">
+                        <a href="https://github.com/derekhcook"><button>Github</button></a>
+                    </div>
+                    <div class="linkedin">
+                        <a href="https://linkedin.com/in/derek-cook-513180238"><button>Linkedin</button></a>
+                    </div>
+                </div>
+            
+                <div class="right-side">
+                    <div class="name">Derek Cook</div>
+                </div>
+            </div>
+
+            <!-- Simple Game -->
+            <div class="game-container">
+                <canvas id="gameCanvas"></canvas>
+                <div class="score">Score: <span id="score">0</span></div>
+            </div>
+
+            <div class="description">
+                <div class="about">
+                    <div>About</div>
+                </div>
+
+                <div class="about-container">
+                    <div class="aboutparagragh">
+                        <p>Hello! as you probably know by now my name is Derek Cook. I am a software developer currently located in Los Angeles California. 
+                            Though I am not from here originally California has quickly become a home for me. With so much stuff to do here it is an amzing place to be.
+                            Anyway enough about the city you want to get to know me! Well I am a small town Texas kid who has always had a desire to persue technology.
+                            As a young kid I found myself taking things apart and rebuilding things with a dream to build robots. Eventually a friend and I tried to persue this 
+                            dream by building remote controlled vehicles out of discarded toys and electronics we found in the old dump near our neighborhood. Soon into my highschool 
+                            years though I realized I actually enjoyed other aspects of technology more than the mechanical side. During my highschool years I was 
+                            introduced to programming in python by my engineering teacher. I fell in love with it, and wanted to program anything I could, but with college approaching 
+                            I decided that it would be the best time to learn thins skill, so I set off to become a computer science major at Angelo State University. During my 
+                            time at Angelo State I was not fortunate enough to get an internship in software development, but I did get a position in the schools IT department. 
+                            With high hopes and big dreams I set the goal to learn as much as I could from the experience and worked my ass off. Eventually during this time I was
+                            moved into the applications department where I ended up as the senior applications specialist overseeing the entirety of the campuses software assets.
+                            It was also during this time that I was able to develope skills in scripting and automation. I was able to automate the IT infrastructure and improve on previous
+                            automations to reduce the ticket turn over rate. After graduating in december of 2024 that is when I decided to start my journey with my girlfriend to Los Angeles.
+                            With the idea of a new beginning and a 24 hour carr ride ahead I was excited to get going. Now that brings us to here. I am looking for a software development roll
+                            and looking to build something extraordinary. So lets see where life takes me next.                    
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <img src="picture/myphoto.jpg" alt="Derek Cook">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript Game -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const canvas = document.getElementById("gameCanvas");
+                const ctx = canvas.getContext("2d");
+
+                canvas.width = 600;
+                canvas.height = 200;
+
+                let player = { x: 50, y: 150, width: 30, height: 30, dy: 0, gravity: 0.5, jumping: false };
+                let obstacles = [];
+                let gameSpeed = 4;
+                let score = 0;
+                let isGameOver = false;
+
+                function drawPlayer() {
+                    ctx.fillStyle = "#007bff";
+                    ctx.fillRect(player.x, player.y, player.width, player.height);
+                }
+
+                function drawObstacles() {
+                    ctx.fillStyle = "red";
+                    obstacles.forEach(obstacle => {
+                        ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                    });
+                }
+
+                function updateObstacles() {
+                    if (Math.random() < 0.02) {
+                        obstacles.push({ x: canvas.width, y: 170, width: 20, height: 20 });
+                    }
+                    obstacles.forEach(obstacle => obstacle.x -= gameSpeed);
+                    obstacles = obstacles.filter(obstacle => obstacle.x > 0);
+                }
+
+                function checkCollision() {
+                    for (let obstacle of obstacles) {
+                        if (
+                            player.x < obstacle.x + obstacle.width &&
+                            player.x + player.width > obstacle.x &&
+                            player.y < obstacle.y + obstacle.height &&
+                            player.y + player.height > obstacle.y
+                        ) {
+                            isGameOver = true;
+                            //alert("Game Over! Score: " + score);
+                            document.location.reload();
+                        }
+                    }
+                }
+
+                function updatePlayer() {
+                    if (player.jumping) {
+                        player.dy += player.gravity;
+                        player.y += player.dy;
+                        if (player.y >= 150) {
+                            player.y = 150;
+                            player.dy = 0;
+                            player.jumping = false;
+                        }
+                    }
+                }
+
+                function gameLoop() {
+                    if (isGameOver) return;
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    drawPlayer();
+                    drawObstacles();
+                    updatePlayer();
+                    updateObstacles();
+                    checkCollision();
+                    score++;
+                    document.getElementById("score").innerText = score;
+                    requestAnimationFrame(gameLoop);
+                }
+
+                document.addEventListener("keydown", function (e) {
+                if (e.code === "Space") {
+                    e.preventDefault(); // Prevents scrolling down when space is pressed
+                    if (!player.jumping) {
+                        player.dy = -10;
+                        player.jumping = true;
+                    }
+                }
+            });
+
+
+                gameLoop();
+            });
+        </script>
+    </body>
+</html>

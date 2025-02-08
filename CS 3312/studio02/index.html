@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+
+<meta charset="UTF-8" />
+<title>Approval voting</title>
+
+<!--
+CS 3312, spring 2024
+Studio 2
+YOUR NAME: Derek Cook
+-->
+
+<!-- Import a CSS stylesheet to style the page. -->
+<link href="style.css" rel="stylesheet" />
+
+</head><body>
+
+<h1 id="top-header">A new way to vote</h1> <!-- write header using h1 and top-header as the identity-->
+
+<p>Why be limited to voting for only one candidate?</p> <!-- using a paragragh <p> to display a line-->
+
+<fieldset> <!--used to make a square around the ballott-->
+   <legend>A ballot using plurality voting</legend> <!--labels the field by putting the words in the field line-->
+   <ul> <!--ul adds the bullet points li marks where each bullet point is-->
+      <!--used to create a radio switch option and use checked to determine the default selection -->
+      <li><label><input id="plurality-for-roosevelt" name="plurality-ballot" type="radio" />&nbsp;Theodore Roosevelt</label></li> 
+      <li><label><input checked="checked" id="plurality-for-taft" name="plurality-ballot" type="radio" />&nbsp;William Howard Taft</label></li>
+      <li><label><input id="plurality-for-wilson" name="plurality-ballot" type="radio" />&nbsp;Woodrow Wilson</label></li>
+   </ul>
+</fieldset>
+
+<!--paragraph with <em> to emphasize or italisize something-->
+<p>Approval voting lets you approve <em>any</em> candidates you like.</p> 
+
+<!-- Fieldset to add the boxed border and <legend> to add the words to it-->
+<fieldset>
+   <legend>A ballot using approval voting</legend>
+   <!-- ul used to add bullet points li used to input the bulletpoints-->
+   <ul>
+      <!-- usedx to make the check boxes and checked determines the default selected-->
+      <li><label><input checked="checked" id="approval-for-roosevelt" type="checkbox" />&nbsp;Theodore Roosevelt</label></li>
+      <li><label><input checked="checked" id="approval-for-taft" type="checkbox" />&nbsp;William Howard Taft</label></li>
+      <li><label><input id="approval-for-wilson" type="checkbox" />&nbsp;Woodrow Wilson</label></li>
+   </ul>
+</fieldset>
+
+<!--paragraph to tell what is coming up-->
+<p>Some advantages:</p>
+
+<!--list of different things using ol and li to number them and <a href> to make them hyperlinks followed by what they should say <a>-->
+<ol>
+   <li>No <a href="https://en.wikipedia.org/wiki/Spoiler_effect">spoiler effect.</a></li>
+   <li>No <a href="https://en.wikipedia.org/wiki/Strategic_nomination">strategic nomination.</a></li>
+   <li>No <a href="https://en.wikipedia.org/wiki/Vote_splitting">vote-splitting</a></li>
+</ol>
+
+<!--paragraph to introduce the data and what if section-->
+<p>And now a what-if scenario:</p>
+
+<!--Table to organize the data with a caption for it and table rows-->
+<table>
+   <caption>1912 presidential election</caption>
+   <!--table row with collums inside that display what each row is-->
+   <tr> <!-- tr = table row -->
+      <th scope="col">candidate</th> <!-- th = table header cell -->
+      <th scope="col">actual popular vote</th>
+      <th scope="col">hypothetical approval vote</th> <!-- scope="col" means it's the header of a column -->
+   </tr>
+   <!--first input of row followed by data td is the input of table data-->
+   <tr>
+      <td> Theodore Roosevelt</td>
+      <td> 27.4%</td>
+      <td>53%</td>
+   </tr>
+   <!--second input of row followed by data td is the input of table data-->
+   <tr>
+      <td>William Howard Taft</td> <!-- scope="row" means it's the header of a row -->
+      <td>23.2%</td>
+      <td>47%</td>
+   </tr>
+   <!--third input of row followed by data td is the input of table data-->
+   <tr>
+      <td>Woodrow Wilson</td>
+      <td>41.8%</td>
+      <td>44%</td>
+   </tr>
+</table>
+<!-- used a <p> to so I could implement the text then add the input box as well as the submit or add me button-->
+<p>Enter your e-mail address to receive updates on this issue:&nbsp;<input id="email-input" type="email" /> <button id="submit-email" type="button">Add me!</button></p>
+<!-- Add your HTML code here. -->
+
+</body></html>
