@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Your Vendor</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a href="/">← Back to Directory</a>
+  <h1>Submit Your Vendor</h1>
+  <form action="/vendor/new" method="POST">
+    <label for="name">Vendor Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+    
+    <label for="imageUrl">Image URL:</label>
+    <input type="url" id="imageUrl" name="imageUrl" required>
+    
+    <label for="website">Vendor Website:</label>
+    <input type="url" id="website" name="website" required>
+    
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

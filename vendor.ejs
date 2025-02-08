@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= vendor.name %> - Vendor Details</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a href="/">← Back to Directory</a>
+  <h1><%= vendor.name %></h1>
+  <img src="<%= vendor.imageUrl %>" alt="<%= vendor.name %>">
+  <p><%= vendor.description %></p>
+  <p>
+    <a href="<%= vendor.website %>" target="_blank">Visit Vendor Website</a>
+  </p>
+  
+  <h2>Reviews</h2>
+  <div class="reviews">
+    <% vendor.reviews.forEach(review => { %>
+      <div class="review">
+        <strong><%= review.user %>:</strong> <%= review.comment %>
+      </div>
+    <% }); %>
+  </div>
+  
+  <h3>Leave a Review</h3>
+  <form action="/vendor/<%= vendor.id %>/review" method="POST">
+    <input type="text" name="user" placeholder="Your name" required>
+    <textarea name="comment" placeholder="Your review" required></textarea>
+    <button type="submit">Submit Review</button>
+  </form>
+</body>
+</html>

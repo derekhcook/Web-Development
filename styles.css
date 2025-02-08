@@ -1,0 +1,109 @@
+/* public/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .vendor-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .vendor {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .vendor img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .vendor a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007BFF;
+  }
+  
+  .reviews {
+    margin: 20px 0;
+  }
+  
+  .review {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+  
+  form input, form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .vendor {
+    /* Initial styles for the vendor tile */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Initial shadow */
+    
+    /* Smooth transition for hover effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for vendor tile */
+  .vendor:hover {
+    transform: scale(1.05); /* Slightly enlarges the tile */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker, larger shadow on hover */
+  }
+
+  /* Style for the "Post Your Vendor" button */
+.post-vendor-button {
+    display: inline-block;
+    background-color: #007BFF;  /* Blue background */
+    color: #fff;                /* White text */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for the button */
+  .post-vendor-button:hover {
+    transform: scale(1.05); /* Enlarge the button slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a pronounced shadow */
+  }
+  
+  

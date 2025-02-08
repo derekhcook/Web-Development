@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vendor Directory</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Vendor Directory</h1>
+  <!-- Link for vendors to submit their own listing -->
+  <p><a href="/vendor/new" class="post-vendor-button">Post Your Vendor</a></p>
+  <div class="vendor-list">
+    <% vendors.forEach(vendor => { %>
+      <div class="vendor">
+        <img src="<%= vendor.imageUrl %>" alt="<%= vendor.name %>">
+        <h2><%= vendor.name %></h2>
+        <p><%= vendor.description %></p>
+        <a href="/vendor/<%= vendor.id %>">View Details</a>
+      </div>
+    <% }); %>
+  </div>
+</body>
+</html>
